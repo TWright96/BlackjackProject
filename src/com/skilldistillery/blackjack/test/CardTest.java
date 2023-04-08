@@ -1,5 +1,6 @@
 package com.skilldistillery.blackjack.test;
 
+import com.skilldistillery.blackjack.entities.Hand;
 import com.skilldistillery.blackjack.entities.Rank;
 import com.skilldistillery.blackjack.entities.Suit;
 
@@ -14,6 +15,9 @@ public class CardTest {
 		    for(Suit s : Suit.values()){
 		      System.out.println(s);
 		    }
+		    
+		   
+		    
 		  }
 		}
 

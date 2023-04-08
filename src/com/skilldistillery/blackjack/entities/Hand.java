@@ -16,9 +16,9 @@ public abstract class Hand {
 		this.hand = hand;
 	}
 
-	public void addCard() {
-		Card addCard = new Card();
-		hand.add(addCard);
+	public void addCard(Card card) {
+		
+		hand.add(card);
 
 	}
 
@@ -27,6 +27,13 @@ public abstract class Hand {
 	}
 
 	public abstract int getHandValue();
-	// to get value of hand get the value of the cards in the hand list
+	
+
+	@Override
+	public String toString() {
+		return "Hand: " + hand;
+	}
+	
+	
 
 }

@@ -37,5 +37,7 @@ public class Deck {
 		Card topCard = deck.remove(0);
 		return topCard;
 	}
-
+//public int cardsLeftInDeck() {
+//	
+//}
 }
