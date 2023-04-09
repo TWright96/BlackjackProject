@@ -13,7 +13,6 @@ public class Dealer extends Player {
 
 	public Dealer(BlackjackHand hand) {
 		super(hand);
-
 	}
 
 	public void dealerShuffle() {
@@ -21,7 +20,7 @@ public class Dealer extends Player {
 		deck1.shuffle();
 	}
 public BlackjackHand dealerLogic(Hand hand) {
-	if (hand.getHandValue() < 17) {
+	while (hand.getHandValue() < 17) {
 		System.out.println("Dealer will hit.");
 	hand.addCard(dealCard());
 	return bjh;
@@ -32,7 +31,7 @@ public BlackjackHand dealerLogic(Hand hand) {
 		System.out.println("Dealer will stand.");
 	}
 	return bjh;
-
+	
 	
 		
 	}

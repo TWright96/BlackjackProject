@@ -17,41 +17,20 @@ public class BlackjackApp {
 	public void run() {
 		System.out.println("PLAY BLACK JACK");
 		dealCards();
-		playersPlay();
-
+		playersOptions();
+		if(!player.playersHand().isBust()) {
+		dealerPlaying();
+		}
+		if (!dealer.playersHand().isBust() && !player.playersHand().isBust()) {
+		announceWinner();
+		}
 // if the player busts the game is over announce "you lose"
 
 // when the player says stand, now the dealer starts playing the dealer cards
 // the dealer must hit if their hand is less than 17 , if the dealers hand is 17+ they must stand
 // neither the player or the dealer is busted compare which player is closer to 21 and announce the winner	
 
-		System.out.println("Dealer is playing....");
-		System.out.println("Dealers " + dealer.dealerLogic(dealer.playersHand()));
-		System.out.println("Dealers hand value: " + dealer.addHandNums());
-		if (player.playersHand().isBust()) {
-			System.out.println("You lose.");
-		}
-		if (dealer.playersHand().isBust()) {
-			System.out.println("Dealer BUST \nYou win!");
-			// break;
-		}
-
-		if (player.addHandNums() > dealer.addHandNums()) {
-
-			System.out.println("You win!");
-			// break;
-		}
-		if (player.addHandNums() < dealer.addHandNums()) {
-			System.out.println("You lose.");
-		}
-		if (player.addHandNums() == dealer.addHandNums()) {
-			System.out.println("PUSH!");
-			// break;
-		}
-
-		if (player.playersHand().isBlackJack()) {
-			System.out.println("!!!BLACK JACK YOU WIN!!! \nCOLLECT YOUR MONEY");
-		}
+		
 		// break;
 
 	}
@@ -71,17 +50,18 @@ public class BlackjackApp {
 		System.out.println("Dealers hand value: " + dealer.addHandNums());
 	}
 
-	public void playersPlay() {
+	public void playersOptions() {
 		do {
 			if (player.playersHand().isBlackJack()) {
-				System.out.println("!!!BLACK JACK YOU WIN!!! \nCOLLECT YOUR MONEY");
+		   	System.out.println("You have BLACKJACK");
 				break;
 			} else if (dealer.playersHand().isBlackJack()) {
-				System.out.println("Dealer has BLACKJACK you lose.");
+				System.out.println("Dealer has BLACKJACK");
 				break;
-			} else {
+			} 
+		else {
 				String choice;
-				// do {
+
 				System.out.println("Hit or stand?");
 				choice = scan.nextLine();
 
@@ -91,21 +71,49 @@ public class BlackjackApp {
 				}
 				if (choice.equals("stand")) {
 					System.out.println("Your hand value: " + player.addHandNums());
-                    break;
+					break;
 				}
 				if (player.playersHand().isBlackJack()) {
 					System.out.println("You have BLACKJACK!");
 					break;
 				}
-				
+
 				if (player.playersHand().isBust()) {
-					System.out.println("You lose.");
+					System.out.println("You BUST, You lose.");
 					break;
 				}
 
-				// } while (choice.equals("hit"));
-
 			}
 		} while (!player.playersHand().isBlackJack());
+	}
+
+	public void dealerPlaying() {
+		System.out.println("Dealer is playing....");
+		System.out.println("Dealers " + dealer.dealerLogic(dealer.playersHand()));
+		System.out.println("Dealers hand value: " + dealer.addHandNums());
+
+		if (dealer.playersHand().isBust()) {
+			System.out.println("Dealer BUST, You win!");
+			
+		}
+	}
+
+	public void announceWinner() {
+		if (player.addHandNums() > dealer.addHandNums()) {
+
+			System.out.println("You win!!! Collect some money!");
+			
+		}
+		if (player.addHandNums() < dealer.addHandNums()) {
+			System.out.println("You lose. Dealer takes all.");
+		}
+		if (player.addHandNums() == dealer.addHandNums()) {
+			System.out.println("PUSH!");
+			// break;
+		}
+
+		if (player.playersHand().isBlackJack()) {
+			System.out.println("!!!BLACK JACK YOU WIN!!! \nCOLLECT YOUR MONEY");
+		}
 	}
 }
