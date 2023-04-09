@@ -1,7 +1,6 @@
 package com.skilldistillery.blackjack.entities;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public abstract class Hand {
@@ -10,7 +9,7 @@ public abstract class Hand {
 
 	}
 
-	 List<Card> hand = new ArrayList<>();
+	protected List<Card> hand = new ArrayList<>();
 
 	public Hand(List<Card> hand) {
 		this.hand = hand;

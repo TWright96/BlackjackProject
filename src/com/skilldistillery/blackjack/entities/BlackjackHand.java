@@ -26,7 +26,7 @@ public class BlackjackHand extends Hand {
 
 	public boolean isBlackJack() {
 		if (getHandValue() == 21) {
-
+			
 			return true;
 		}
 
@@ -43,9 +43,5 @@ public class BlackjackHand extends Hand {
 			return false;
 		}
 	}
-	
-	
-		
-	
 
 }
