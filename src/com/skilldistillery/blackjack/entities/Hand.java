@@ -10,7 +10,7 @@ public abstract class Hand {
 
 	}
 
-	List<Card> hand = new ArrayList<>();
+	 List<Card> hand = new ArrayList<>();
 
 	public Hand(List<Card> hand) {
 		this.hand = hand;
