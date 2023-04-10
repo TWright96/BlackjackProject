@@ -11,7 +11,6 @@ public enum Rank {
 	Rank(int rankValue) {
 		this.rankValue = rankValue;
 		this.rankValueName = "";
-
 	}
 
 	Rank(int rankValue, String rankValueName) {
